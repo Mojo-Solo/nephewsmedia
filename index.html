@@ -29,6 +29,7 @@
     --dim:rgba(245,240,235,0.35);
     --accent:#e85d26;
     --accent-soft:rgba(232,93,38,0.12);
+    --card:rgba(255,255,255,0.04);
     --border:rgba(255,255,255,0.08);
   }
 
@@ -44,8 +45,8 @@
     overflow-x:hidden;
   }
 
-  /* ─── LAYOUT ─── */
-  .page{
+  /* ─── SCENES ─── */
+  .scene{
     min-height:100vh;
     min-height:100dvh;
     display:flex;
@@ -53,16 +54,17 @@
     justify-content:center;
     align-items:center;
     padding:80px 32px;
+    position:relative;
   }
-  .inner{
-    max-width:640px;
+  .scene-inner{
+    max-width:860px;
     width:100%;
   }
 
   /* ─── TYPOGRAPHY ─── */
   .label{
     font-family:'DM Mono',monospace;
-    font-size:clamp(11px,1.5vw,13px);
+    font-size:clamp(11px,1.5vw,14px);
     letter-spacing:0.3em;
     text-transform:uppercase;
     color:var(--accent);
@@ -71,28 +73,30 @@
   }
   h1{
     font-family:'Instrument Serif',Georgia,serif;
-    font-size:clamp(44px,8vw,80px);
+    font-size:clamp(48px,9vw,96px);
     font-weight:400;
-    line-height:1.05;
+    line-height:1.0;
     letter-spacing:-2px;
     margin-bottom:24px;
   }
   h1 em{font-style:italic;color:var(--accent);}
   h2{
     font-family:'Instrument Serif',Georgia,serif;
-    font-size:clamp(28px,4vw,40px);
+    font-size:clamp(36px,6vw,72px);
     font-weight:400;
-    line-height:1.15;
-    letter-spacing:-1px;
+    line-height:1.05;
+    letter-spacing:-1.5px;
     margin-bottom:20px;
-    margin-top:64px;
   }
+  h2 em{font-style:italic;color:var(--accent);}
   .body-text{
-    font-size:clamp(17px,2vw,20px);
+    font-size:clamp(18px,2.2vw,24px);
     color:var(--dim);
+    max-width:680px;
     line-height:1.7;
     margin-bottom:16px;
   }
+  .body-text:last-child{margin-bottom:0;}
   .body-text strong{color:var(--text);font-weight:600;}
 
   /* ─── DIVIDER ─── */
@@ -104,43 +108,123 @@
     opacity:0.5;
   }
 
-  /* ─── WHAT YOU GET ─── */
-  .checklist{
-    list-style:none;
-    margin:24px 0 40px;
-  }
-  .checklist li{
-    font-size:clamp(17px,2vw,20px);
-    color:var(--text);
-    padding:12px 0;
-    border-bottom:1px solid var(--border);
-    display:flex;
-    align-items:baseline;
+  /* ─── PILLAR CARDS ─── */
+  .pillar-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
     gap:16px;
+    margin-top:48px;
   }
-  .checklist li::before{
-    content:'\2713';
-    color:var(--accent);
-    font-weight:700;
-    flex-shrink:0;
+  .pillar{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:36px 28px;
+    transition:border-color 0.3s ease;
+  }
+  .pillar:hover{border-color:rgba(232,93,38,0.3);}
+  .pillar-icon{
+    font-size:36px;
+    margin-bottom:20px;
+    display:block;
+  }
+  .pillar-title{
+    font-family:'Instrument Serif',Georgia,serif;
+    font-size:clamp(22px,2.5vw,28px);
+    font-weight:400;
+    margin-bottom:12px;
+    color:var(--text);
+  }
+  .pillar-text{
+    font-size:15px;
+    color:var(--dim);
+    line-height:1.6;
   }
 
-  /* ─── WHAT WE NEED ─── */
-  .requirements{
-    list-style:none;
-    margin:24px 0 40px;
+  /* ─── DETAIL CARDS (2-col) ─── */
+  .detail-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:32px;
   }
-  .requirements li{
-    font-size:clamp(16px,1.8vw,18px);
+  .detail{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:28px 24px;
+  }
+  .detail-num{
+    font-family:'Instrument Serif',Georgia,serif;
+    font-size:clamp(28px,3vw,36px);
+    color:var(--accent);
+    font-weight:400;
+    line-height:1;
+    margin-bottom:8px;
+  }
+  .detail-label{
+    font-size:14px;
     color:var(--dim);
-    padding:10px 0;
-    border-bottom:1px solid var(--border);
+    line-height:1.5;
   }
-  .requirements li strong{color:var(--text);}
+
+  /* ─── BIG NUMBER ─── */
+  .big-number{
+    font-family:'Instrument Serif',Georgia,serif;
+    font-size:clamp(64px,12vw,140px);
+    font-weight:400;
+    line-height:1;
+    letter-spacing:-3px;
+    color:var(--accent);
+    margin:16px 0;
+  }
+
+  /* ─── PULL QUOTE ─── */
+  .pull-quote{
+    font-family:'Instrument Serif',Georgia,serif;
+    font-size:clamp(28px,4vw,44px);
+    font-style:italic;
+    color:var(--text);
+    line-height:1.35;
+    margin:40px 0;
+    padding-left:28px;
+    border-left:3px solid var(--accent);
+  }
+
+  /* ─── REQUIREMENTS ─── */
+  .req-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    margin-top:40px;
+  }
+  .req{
+    text-align:center;
+    padding:40px 20px;
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:var(--card);
+  }
+  .req-word{
+    font-family:'Instrument Serif',Georgia,serif;
+    font-size:clamp(28px,3.5vw,40px);
+    font-weight:400;
+    color:var(--text);
+    margin-bottom:8px;
+  }
+  .req-desc{
+    font-size:14px;
+    color:var(--dim);
+    line-height:1.5;
+  }
 
   /* ─── FORM ─── */
+  .form-wrap{
+    max-width:540px;
+    width:100%;
+    margin-top:40px;
+  }
   .apply-form{
-    margin-top:48px;
     display:flex;
     flex-direction:column;
     gap:16px;
@@ -175,7 +259,7 @@
     border-color:var(--accent);
   }
   .field textarea{
-    min-height:120px;
+    min-height:100px;
     resize:vertical;
   }
   .submit-btn{
@@ -222,83 +306,206 @@
     opacity:0.5;
   }
 
-  /* ─── THANK YOU STATE ─── */
+  /* ─── SCROLL REVEAL + BRIGHTEN ─── */
+  .reveal{
+    --bright:0;
+    opacity:0;
+    transform:translateY(40px);
+    transition:opacity 0.6s ease,transform 0.6s ease;
+  }
+  .reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .scene-inner h2,
+  .scene-inner .body-text,
+  .scene-inner .pillar,
+  .scene-inner .detail,
+  .scene-inner .req,
+  .scene-inner .pull-quote,
+  .scene-inner .big-number{
+    transition:filter 0.3s ease;
+    filter:brightness(calc(0.3 + var(--bright) * 0.7));
+  }
+
+  /* ─── THANK YOU ─── */
   .thank-you{display:none;}
   .thank-you.active{display:block;}
   .form-state{transition:opacity 0.4s ease;}
   .form-state.hidden{opacity:0;position:absolute;pointer-events:none;}
 
   /* ─── RESPONSIVE ─── */
-  @media(max-width:640px){
-    .page{padding:60px 20px;}
+  @media(max-width:768px){
+    .scene{padding:60px 20px;}
+    .pillar-grid{grid-template-columns:1fr;}
+    .detail-grid{grid-template-columns:1fr;}
+    .req-row{grid-template-columns:1fr;}
   }
 </style>
 </head>
 <body>
 
-<div class="page">
-  <div class="inner">
+<!-- ═══════════ HERO ═══════════ -->
+<div class="scene">
+  <div class="scene-inner reveal">
     <div class="label">Nephews Media</div>
     <h1>Become a<br><em>Nephew.</em></h1>
     <div class="divider"></div>
     <p class="body-text">
-      We built an AI production system that turns <strong>one person</strong> into a full creative agency. 40 hours. $125 in credits. Output that competes with teams of ten.
+      One person. One system. A full creative agency.
     </p>
-    <p class="body-text">
-      Now we&rsquo;re looking for operators who want to run their own unit.
-    </p>
-    <p class="body-text">
-      <strong>The Uncle will hook you up.</strong>
-    </p>
+    <div class="pull-quote">
+      The Uncle will hook you up.
+    </div>
+    <div class="back" style="margin-top:24px;cursor:default;color:var(--dim);">&darr; Keep scrolling</div>
+  </div>
+</div>
 
-    <h2>The Operating Playbook.</h2>
-    <p class="body-text">
-      You don&rsquo;t figure this out alone. You get a complete system.
-    </p>
-    <ul class="checklist">
-      <li>The ONE&reg; production methodology &mdash; the exact workflow behind Nephewzz Episode 01</li>
-      <li>Step-by-step operating playbook for running your unit from day one</li>
-      <li>AI workflow tooling, prompt libraries, and production templates</li>
-      <li>Direct training and onboarding from the creator (21.5 years, 3,000+ projects)</li>
-      <li>Quality standards and review process so your output hits the bar</li>
-    </ul>
+<!-- ═══════════ THREE PILLARS ═══════════ -->
+<div class="scene">
+  <div class="scene-inner reveal">
+    <div class="label">What you get</div>
+    <h2>Everything you need<br>to <em>launch.</em></h2>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <span class="pillar-icon">&#9881;</span>
+        <div class="pillar-title">Operating Playbook</div>
+        <div class="pillar-text">The exact system behind Nephewzz. Workflow, templates, quality standards. Day-one ready.</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">&#9733;</span>
+        <div class="pillar-title">Marketing Setup</div>
+        <div class="pillar-text">Portfolio site, pitch decks, pricing strategy, sales playbook. You show up with clients, not questions.</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">&#9670;</span>
+        <div class="pillar-title">Data Enhancement</div>
+        <div class="pillar-text">Prospect lists, market intel, CRM, outreach automation. Warm pipeline from day one.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <h2>Marketing Setup.</h2>
+<!-- ═══════════ OPERATING PLAYBOOK DETAIL ═══════════ -->
+<div class="scene">
+  <div class="scene-inner reveal">
+    <div class="label">The system</div>
+    <h2>The Operating<br><em>Playbook.</em></h2>
+    <div class="divider"></div>
     <p class="body-text">
-      We don&rsquo;t just hand you the tools and wish you luck. We set you up to win.
+      You don&rsquo;t figure this out alone.
     </p>
-    <ul class="checklist">
-      <li>Client acquisition playbook &mdash; how to find, pitch, and close your first clients</li>
-      <li>Your own branded portfolio site, pre-loaded with system output</li>
-      <li>Sales materials, case studies, and pitch decks you can use immediately</li>
-      <li>Pricing strategy and proposal templates built on real client data</li>
-      <li>Access to the Nephews operator network for referrals and overflow work</li>
-    </ul>
+    <div class="detail-grid">
+      <div class="detail">
+        <div class="detail-num">ONE&reg;</div>
+        <div class="detail-label">The exact production methodology behind Episode 01</div>
+      </div>
+      <div class="detail">
+        <div class="detail-num">Day 1</div>
+        <div class="detail-label">Step-by-step playbook. You&rsquo;re operational immediately.</div>
+      </div>
+      <div class="detail">
+        <div class="detail-num">3,000+</div>
+        <div class="detail-label">Projects of pattern recognition built into your tooling</div>
+      </div>
+      <div class="detail">
+        <div class="detail-num">Direct</div>
+        <div class="detail-label">Training from the creator. 21.5 years of methodology, transferred.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <h2>Data Enhancement.</h2>
+<!-- ═══════════ MARKETING SETUP DETAIL ═══════════ -->
+<div class="scene">
+  <div class="scene-inner reveal">
+    <div class="label">Your launch kit</div>
+    <h2>Marketing<br><em>Setup.</em></h2>
+    <div class="divider"></div>
+    <p class="body-text">
+      We don&rsquo;t hand you the tools and wish you luck.
+    </p>
+    <div class="detail-grid">
+      <div class="detail">
+        <div class="detail-num">Site</div>
+        <div class="detail-label">Your own branded portfolio, pre-loaded with system output</div>
+      </div>
+      <div class="detail">
+        <div class="detail-num">Decks</div>
+        <div class="detail-label">Sales materials, case studies, and pitch decks ready to send</div>
+      </div>
+      <div class="detail">
+        <div class="detail-num">Price</div>
+        <div class="detail-label">Pricing strategy and proposal templates from real client data</div>
+      </div>
+      <div class="detail">
+        <div class="detail-num">Network</div>
+        <div class="detail-label">Nephews operator network for referrals and overflow</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ DATA ENHANCEMENT DETAIL ═══════════ -->
+<div class="scene">
+  <div class="scene-inner reveal">
+    <div class="label">Your pipeline</div>
+    <h2>Data<br><em>Enhancement.</em></h2>
+    <div class="divider"></div>
     <p class="body-text">
       You start with a warm market, not a cold one.
     </p>
-    <ul class="checklist">
-      <li>Targeted prospect lists built for your geography and vertical</li>
-      <li>Market intelligence &mdash; who&rsquo;s spending on production in your area and what they&rsquo;re paying</li>
-      <li>CRM setup with your pipeline pre-configured and ready to work</li>
-      <li>Outreach sequences and follow-up automation that run while you produce</li>
-    </ul>
+    <div class="detail-grid">
+      <div class="detail">
+        <div class="detail-num">Lists</div>
+        <div class="detail-label">Targeted prospects built for your geography and vertical</div>
+      </div>
+      <div class="detail">
+        <div class="detail-num">Intel</div>
+        <div class="detail-label">Who&rsquo;s spending on production near you and what they pay</div>
+      </div>
+      <div class="detail">
+        <div class="detail-num">CRM</div>
+        <div class="detail-label">Pipeline pre-configured and ready to work on day one</div>
+      </div>
+      <div class="detail">
+        <div class="detail-num">Auto</div>
+        <div class="detail-label">Outreach sequences that run while you produce</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <h2>What we need from you.</h2>
-    <ul class="requirements">
-      <li><strong>Execution.</strong> You don&rsquo;t need 20 years of experience. You need drive.</li>
-      <li><strong>Taste.</strong> You know what good looks like, even if you can&rsquo;t make it yet.</li>
-      <li><strong>Commitment.</strong> This is a business, not a side project.</li>
-    </ul>
+<!-- ═══════════ WHAT WE NEED ═══════════ -->
+<div class="scene">
+  <div class="scene-inner reveal">
+    <div class="label">What we need</div>
+    <h2>Three<br><em>things.</em></h2>
+    <div class="req-row">
+      <div class="req">
+        <div class="req-word">Execution.</div>
+        <div class="req-desc">You don&rsquo;t need 20 years. You need drive.</div>
+      </div>
+      <div class="req">
+        <div class="req-word">Taste.</div>
+        <div class="req-desc">You know good when you see it.</div>
+      </div>
+      <div class="req">
+        <div class="req-word">Commitment.</div>
+        <div class="req-desc">This is a business, not a side project.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <h2>Apply.</h2>
-    <p class="body-text">
-      Tell us who you are and why you want in.
-    </p>
+<!-- ═══════════ APPLY ═══════════ -->
+<div class="scene">
+  <div class="scene-inner reveal">
+    <div class="label">Apply</div>
+    <h2>Want <em>in?</em></h2>
+    <div class="divider"></div>
 
-    <div id="form-container">
+    <div class="form-wrap" id="form-container">
       <form class="apply-form form-state" id="apply-form" onsubmit="return submitForm(event)">
         <div class="field">
           <label for="name">Name</label>
@@ -309,20 +516,20 @@
           <input type="email" id="email" name="email" required placeholder="you@example.com">
         </div>
         <div class="field">
-          <label for="background">Your background</label>
+          <label for="background">Background</label>
           <input type="text" id="background" name="background" placeholder="What do you do now?">
         </div>
         <div class="field">
-          <label for="why">Why do you want to be a Nephew?</label>
-          <textarea id="why" name="why" placeholder="What got your attention? What would you do with this?"></textarea>
+          <label for="why">Why?</label>
+          <textarea id="why" name="why" placeholder="What got your attention?"></textarea>
         </div>
-        <button type="submit" class="submit-btn">Submit Application</button>
+        <button type="submit" class="submit-btn">Submit</button>
       </form>
 
       <div class="thank-you" id="thank-you">
-        <h2>Got it.</h2>
+        <h2 style="margin-top:0;">Got it.</h2>
         <p class="body-text">
-          We&rsquo;ll be in touch. In the meantime, watch <a href="https://nephewzz.com" style="color:var(--accent);">Episode 01</a>.
+          We&rsquo;ll be in touch. Watch <a href="https://nephewzz.com" style="color:var(--accent);">Episode 01</a>.
         </p>
       </div>
     </div>
@@ -331,9 +538,33 @@
   </div>
 </div>
 
+<!-- ═══════════ FOOTER ═══════════ -->
 <div class="footer">
   Nephews Media &middot; A Mojo Solo Company &middot; Est. 2004
 </div>
+
+<!-- ═══════════ SCROLL REVEAL + BRIGHTEN ═══════════ -->
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  const scenes = document.querySelectorAll('.scene-inner');
+  function updateBrightness() {
+    const vh = window.innerHeight;
+    const center = vh * 0.5;
+    scenes.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const elCenter = rect.top + rect.height * 0.5;
+      const dist = Math.abs(elCenter - center) / vh;
+      const bright = Math.max(0, Math.min(1, 1 - dist * 1.25));
+      el.style.setProperty('--bright', bright.toFixed(3));
+    });
+    requestAnimationFrame(updateBrightness);
+  }
+  requestAnimationFrame(updateBrightness);
+</script>
 
 <script>
   function submitForm(e) {
@@ -345,13 +576,11 @@
     var background = data.get('background');
     var why = data.get('why');
 
-    // Track in GA4
     gtag('event', 'nephew_application', {
       source: 'nephewsmedia',
       applicant_name: name
     });
 
-    // Send via mailto as fallback + reliable delivery
     var subject = encodeURIComponent('Nephew Application: ' + name);
     var body = encodeURIComponent(
       'Name: ' + name + '\n' +
@@ -361,7 +590,6 @@
     );
     window.open('mailto:nephews@mojosolo.com?subject=' + subject + '&body=' + body, '_blank');
 
-    // Show thank you
     form.classList.add('hidden');
     setTimeout(function() {
       form.style.display = 'none';

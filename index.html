@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Become a Nephew — Run Your Own AI Production Unit</title>
+<meta name="description" content="Apply to become a Nephew. We built the system. You run it. Your clients. Your business.">
+<meta property="og:title" content="Become a Nephew — Run Your Own Unit">
+<meta property="og:description" content="We built the AI production system. You run it. Your clients. Your business.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nephewsmedia.com">
+<link rel="canonical" href="https://nephewsmedia.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WYCEKJZMSS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WYCEKJZMSS');
+</script>
+
+<style>
+  :root {
+    --bg:#0a0a0a;
+    --text:#f5f0eb;
+    --dim:rgba(245,240,235,0.35);
+    --accent:#e85d26;
+    --accent-soft:rgba(232,93,38,0.12);
+    --border:rgba(255,255,255,0.08);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    font-size:17px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  /* ─── LAYOUT ─── */
+  .page{
+    min-height:100vh;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:80px 32px;
+  }
+  .inner{
+    max-width:640px;
+    width:100%;
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  .label{
+    font-family:'DM Mono',monospace;
+    font-size:clamp(11px,1.5vw,13px);
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:28px;
+    opacity:0.8;
+  }
+  h1{
+    font-family:'Instrument Serif',Georgia,serif;
+    font-size:clamp(44px,8vw,80px);
+    font-weight:400;
+    line-height:1.05;
+    letter-spacing:-2px;
+    margin-bottom:24px;
+  }
+  h1 em{font-style:italic;color:var(--accent);}
+  h2{
+    font-family:'Instrument Serif',Georgia,serif;
+    font-size:clamp(28px,4vw,40px);
+    font-weight:400;
+    line-height:1.15;
+    letter-spacing:-1px;
+    margin-bottom:20px;
+    margin-top:64px;
+  }
+  .body-text{
+    font-size:clamp(17px,2vw,20px);
+    color:var(--dim);
+    line-height:1.7;
+    margin-bottom:16px;
+  }
+  .body-text strong{color:var(--text);font-weight:600;}
+
+  /* ─── DIVIDER ─── */
+  .divider{
+    width:48px;
+    height:2px;
+    background:var(--accent);
+    margin:32px 0;
+    opacity:0.5;
+  }
+
+  /* ─── WHAT YOU GET ─── */
+  .checklist{
+    list-style:none;
+    margin:24px 0 40px;
+  }
+  .checklist li{
+    font-size:clamp(17px,2vw,20px);
+    color:var(--text);
+    padding:12px 0;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+  }
+  .checklist li::before{
+    content:'\2713';
+    color:var(--accent);
+    font-weight:700;
+    flex-shrink:0;
+  }
+
+  /* ─── WHAT WE NEED ─── */
+  .requirements{
+    list-style:none;
+    margin:24px 0 40px;
+  }
+  .requirements li{
+    font-size:clamp(16px,1.8vw,18px);
+    color:var(--dim);
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .requirements li strong{color:var(--text);}
+
+  /* ─── FORM ─── */
+  .apply-form{
+    margin-top:48px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .field label{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--dim);
+  }
+  .field input,
+  .field textarea{
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px 18px;
+    color:var(--text);
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    transition:border-color 0.3s ease;
+    outline:none;
+  }
+  .field input:focus,
+  .field textarea:focus{
+    border-color:var(--accent);
+  }
+  .field textarea{
+    min-height:120px;
+    resize:vertical;
+  }
+  .submit-btn{
+    margin-top:8px;
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    font-family:'DM Mono',monospace;
+    font-size:13px;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:0.2em;
+    padding:16px 36px;
+    border-radius:100px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    align-self:flex-start;
+  }
+  .submit-btn:hover{
+    background:#d04f1e;
+    transform:scale(1.03);
+  }
+
+  /* ─── BACK LINK ─── */
+  .back{
+    display:inline-block;
+    margin-top:48px;
+    font-family:'DM Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.15em;
+    color:var(--dim);
+    text-decoration:none;
+    transition:color 0.3s ease;
+  }
+  .back:hover{color:var(--accent);}
+
+  /* ─── FOOTER ─── */
+  .footer{
+    text-align:center;
+    padding:48px 24px;
+    font-size:11px;
+    color:var(--dim);
+    letter-spacing:0.1em;
+    opacity:0.5;
+  }
+
+  /* ─── THANK YOU STATE ─── */
+  .thank-you{display:none;}
+  .thank-you.active{display:block;}
+  .form-state{transition:opacity 0.4s ease;}
+  .form-state.hidden{opacity:0;position:absolute;pointer-events:none;}
+
+  /* ─── RESPONSIVE ─── */
+  @media(max-width:640px){
+    .page{padding:60px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="inner">
+    <div class="label">Nephews Media</div>
+    <h1>Become a<br><em>Nephew.</em></h1>
+    <div class="divider"></div>
+    <p class="body-text">
+      We built an AI production system that turns <strong>one person</strong> into a full creative agency. 40 hours. $125 in credits. Output that competes with teams of ten.
+    </p>
+    <p class="body-text">
+      Now we&rsquo;re looking for operators who want to run their own unit.
+    </p>
+
+    <h2>What you get.</h2>
+    <ul class="checklist">
+      <li>The ONE&reg; production methodology</li>
+      <li>Training and onboarding from the creator</li>
+      <li>AI workflow tooling and templates</li>
+      <li>Client acquisition playbook</li>
+      <li>Access to the Nephews operator network</li>
+    </ul>
+
+    <h2>What we need from you.</h2>
+    <ul class="requirements">
+      <li><strong>Execution.</strong> You don&rsquo;t need 20 years of experience. You need drive.</li>
+      <li><strong>Taste.</strong> You know what good looks like, even if you can&rsquo;t make it yet.</li>
+      <li><strong>Commitment.</strong> This is a business, not a side project.</li>
+    </ul>
+
+    <h2>Apply.</h2>
+    <p class="body-text">
+      Tell us who you are and why you want in.
+    </p>
+
+    <div id="form-container">
+      <form class="apply-form form-state" id="apply-form" onsubmit="return submitForm(event)">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="background">Your background</label>
+          <input type="text" id="background" name="background" placeholder="What do you do now?">
+        </div>
+        <div class="field">
+          <label for="why">Why do you want to be a Nephew?</label>
+          <textarea id="why" name="why" placeholder="What got your attention? What would you do with this?"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit Application</button>
+      </form>
+
+      <div class="thank-you" id="thank-you">
+        <h2>Got it.</h2>
+        <p class="body-text">
+          We&rsquo;ll be in touch. In the meantime, watch <a href="https://nephewzz.com" style="color:var(--accent);">Episode 01</a>.
+        </p>
+      </div>
+    </div>
+
+    <a href="https://nephewzz.com" class="back">&larr; Back to Nephewzz</a>
+  </div>
+</div>
+
+<div class="footer">
+  Nephews Media &middot; A Mojo Solo Company &middot; Est. 2004
+</div>
+
+<script>
+  function submitForm(e) {
+    e.preventDefault();
+    var form = document.getElementById('apply-form');
+    var data = new FormData(form);
+    var name = data.get('name');
+    var email = data.get('email');
+    var background = data.get('background');
+    var why = data.get('why');
+
+    // Track in GA4
+    gtag('event', 'nephew_application', {
+      source: 'nephewsmedia',
+      applicant_name: name
+    });
+
+    // Send via mailto as fallback + reliable delivery
+    var subject = encodeURIComponent('Nephew Application: ' + name);
+    var body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Background: ' + background + '\n\n' +
+      'Why:\n' + why
+    );
+    window.open('mailto:nephews@mojosolo.com?subject=' + subject + '&body=' + body, '_blank');
+
+    // Show thank you
+    form.classList.add('hidden');
+    setTimeout(function() {
+      form.style.display = 'none';
+      document.getElementById('thank-you').classList.add('active');
+    }, 400);
+
+    return false;
+  }
+</script>
+
+</body>
+</html>

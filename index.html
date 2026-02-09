@@ -45,6 +45,12 @@
     overflow-x:hidden;
   }
 
+  /* ─── CUSTOM SCROLLBAR ─── */
+  ::-webkit-scrollbar{width:6px;}
+  ::-webkit-scrollbar-track{background:var(--bg);}
+  ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:3px;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--accent);}
+
   /* ─── SCENES ─── */
   .scene{
     min-height:100vh;
@@ -116,13 +122,18 @@
     margin-top:48px;
   }
   .pillar{
-    background:var(--card);
+    background:rgba(26,20,13,0.7);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
     border:1px solid var(--border);
     border-radius:20px;
     padding:36px 28px;
-    transition:border-color 0.3s ease;
+    transition:border-color 0.3s ease, box-shadow 0.3s ease;
   }
-  .pillar:hover{border-color:rgba(232,93,38,0.3);}
+  .pillar:hover{
+    border-color:rgba(232,93,38,0.3);
+    box-shadow:0 0 30px rgba(232,93,38,0.15);
+  }
   .pillar-icon{
     font-size:36px;
     margin-bottom:20px;
@@ -149,7 +160,9 @@
     margin-top:32px;
   }
   .detail{
-    background:var(--card);
+    background:rgba(26,20,13,0.7);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
     border:1px solid var(--border);
     border-radius:16px;
     padding:28px 24px;
@@ -161,6 +174,7 @@
     font-weight:400;
     line-height:1;
     margin-bottom:8px;
+    text-shadow:0 0 20px rgba(232,93,38,0.3);
   }
   .detail-label{
     font-size:14px;
@@ -189,6 +203,7 @@
     margin:40px 0;
     padding-left:28px;
     border-left:3px solid var(--accent);
+    box-shadow:-4px 0 20px rgba(232,93,38,0.2);
   }
 
   /* ─── REQUIREMENTS ─── */
@@ -203,7 +218,13 @@
     padding:40px 20px;
     border:1px solid var(--border);
     border-radius:20px;
-    background:var(--card);
+    background:rgba(26,20,13,0.7);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    transition:box-shadow 0.3s ease;
+  }
+  .req:hover{
+    box-shadow:0 0 30px rgba(232,93,38,0.12);
   }
   .req-word{
     font-family:'Instrument Serif',Georgia,serif;
@@ -211,11 +232,93 @@
     font-weight:400;
     color:var(--text);
     margin-bottom:8px;
+    transition:text-shadow 0.3s ease;
+  }
+  .req:hover .req-word{
+    text-shadow:0 0 24px rgba(232,93,38,0.35);
   }
   .req-desc{
     font-size:14px;
     color:var(--dim);
     line-height:1.5;
+  }
+
+  /* ─── VIDEO SUITE SECTION ─── */
+  .suite-mockup{
+    max-width:720px;
+    width:100%;
+    margin:48px auto 0;
+    background:rgba(26,20,13,0.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid var(--border);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .suite-titlebar{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:12px 16px;
+    background:rgba(255,255,255,0.03);
+    border-bottom:1px solid var(--border);
+  }
+  .suite-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+  }
+  .suite-dot--red{background:#ff5f57;}
+  .suite-dot--yellow{background:#febc2e;}
+  .suite-dot--green{background:#28c840;}
+  .suite-body{
+    padding:24px;
+  }
+  .suite-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+  }
+  .suite-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px 16px;
+    transition:border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .suite-card:hover{
+    border-color:rgba(232,93,38,0.25);
+    box-shadow:0 0 20px rgba(232,93,38,0.1);
+  }
+  .suite-card-name{
+    font-family:'Instrument Serif',Georgia,serif;
+    font-size:18px;
+    color:var(--accent);
+    margin-bottom:6px;
+  }
+  .suite-card-desc{
+    font-size:13px;
+    color:var(--dim);
+    line-height:1.45;
+  }
+  .suite-cta{
+    display:inline-block;
+    margin-top:40px;
+    background:var(--accent);
+    color:#fff;
+    font-family:'DM Mono',monospace;
+    font-size:13px;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:0.2em;
+    text-decoration:none;
+    padding:14px 32px;
+    border-radius:100px;
+    transition:all 0.3s ease;
+  }
+  .suite-cta:hover{
+    background:#d04f1e;
+    transform:scale(1.03);
   }
 
   /* ─── FORM ─── */
@@ -323,7 +426,9 @@
   .scene-inner .detail,
   .scene-inner .req,
   .scene-inner .pull-quote,
-  .scene-inner .big-number{
+  .scene-inner .big-number,
+  .scene-inner .suite-mockup,
+  .scene-inner .suite-cta{
     transition:filter 0.3s ease;
     filter:brightness(calc(0.3 + var(--bright) * 0.7));
   }
@@ -340,6 +445,10 @@
     .pillar-grid{grid-template-columns:1fr;}
     .detail-grid{grid-template-columns:1fr;}
     .req-row{grid-template-columns:1fr;}
+    .suite-grid{grid-template-columns:1fr;}
+  }
+  @media(min-width:769px) and (max-width:960px){
+    .suite-grid{grid-template-columns:repeat(2,1fr);}
   }
 </style>
 </head>
@@ -473,6 +582,56 @@
         <div class="detail-label">Outreach sequences that run while you produce</div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ═══════════ VIDEO SUITE PREVIEW ═══════════ -->
+<div class="scene">
+  <div class="scene-inner reveal">
+    <div class="label">Your tooling</div>
+    <h2>The <em>Suite.</em></h2>
+    <div class="divider"></div>
+    <p class="body-text">
+      Every Nephew gets access to the production suite.
+    </p>
+
+    <div class="suite-mockup">
+      <div class="suite-titlebar">
+        <span class="suite-dot suite-dot--red"></span>
+        <span class="suite-dot suite-dot--yellow"></span>
+        <span class="suite-dot suite-dot--green"></span>
+      </div>
+      <div class="suite-body">
+        <div class="suite-grid">
+          <div class="suite-card">
+            <div class="suite-card-name">Dashboard</div>
+            <div class="suite-card-desc">Metrics and project status at a glance</div>
+          </div>
+          <div class="suite-card">
+            <div class="suite-card-name">Asset Library</div>
+            <div class="suite-card-desc">AI-tagged media, instant search</div>
+          </div>
+          <div class="suite-card">
+            <div class="suite-card-name">Smart Trim</div>
+            <div class="suite-card-desc">Timeline editor with AI-assisted cuts</div>
+          </div>
+          <div class="suite-card">
+            <div class="suite-card-name">Workflow</div>
+            <div class="suite-card-desc">Visual production pipeline</div>
+          </div>
+          <div class="suite-card">
+            <div class="suite-card-name">Budget</div>
+            <div class="suite-card-desc">Track spend and forecast</div>
+          </div>
+          <div class="suite-card">
+            <div class="suite-card-name">Ingest</div>
+            <div class="suite-card-desc">Drag-drop import with auto-tagging</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://suite.nephewzz.com" class="suite-cta">Launch Demo &rarr;</a>
   </div>
 </div>
 
